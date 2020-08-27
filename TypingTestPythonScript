@@ -1,0 +1,39 @@
+import selenium
+import time
+from selenium import webdriver
+from time import sleep
+# Using Chrome to access web
+driver = webdriver.Chrome()
+
+driver.get('https://www.speedtypingonline.com/login.php')
+
+id_box = driver.find_element_by_id('username')
+id_box.send_keys("soosan_ahhh")
+id_box = driver.find_element_by_id('password')
+id_box.send_keys("abc123")
+time.sleep(1)
+login_button = driver.find_element_by_class_name('mediumBtn.flatBlueBtn')
+login_button.click()
+
+driver.implicitly_wait(10)
+
+# Open the website
+driver.get('https://www.speedtypingonline.com/games/type-the-alphabet.php')
+
+for x in range(50):
+# Equivalent Outcome!
+    id_box = driver.find_element_by_id('blockDivContainer')
+
+    for i in range(25):
+        id_box.send_keys(chr(ord('a') + i))
+
+    #time.sleep(0.369096)
+    id_box.send_keys('z')
+
+
+    time.sleep(2)
+    reset_button = driver.find_element_by_class_name('orangeButton')
+    reset_button.click()
+
+
+
